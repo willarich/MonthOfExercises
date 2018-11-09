@@ -37,5 +37,23 @@ namespace WindowsFormsApp1
 
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string first = textBox2.Text.ToLower();
+            string second = textBox3.Text.ToLower();
+            first = Regex.Replace(first, @"\s+", "");
+            second = Regex.Replace(second, @"\s+", "");
+            first = String.Concat(first.OrderBy(c => c));
+            second = String.Concat(second.OrderBy(c => c));
+            if (Equals(first, second))
+            {
+                label2.Text = "They are a proper anagram";
+            }
+            else
+            {
+                label2.Text = "These two are not anagrams";
+            }
+        }
     }
 }
